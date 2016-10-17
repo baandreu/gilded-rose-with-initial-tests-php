@@ -10,8 +10,16 @@ final class AgedBrie extends MutableItem
 
         $this->legacyItem->sell_in = $this->legacyItem->sell_in - 1;
 
-        if ($this->legacyItem->sell_in < 0) {
+        if ($this->hasExpired()) {
             $this->increaseQuality();
         }
+    }
+
+    /**
+     * @return bool
+     */
+    private function hasExpired()
+    {
+        return $this->legacyItem->sell_in < 0;
     }
 }
