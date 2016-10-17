@@ -4,7 +4,7 @@ namespace GildedRose;
 
 use GildedRose\Items\AgedBrie;
 use GildedRose\Items\BackstagePass;
-use GildedRose\Items\LegacyItem;
+use GildedRose\Items\PerishableItem;
 use GildedRose\Items\NewItem;
 use GildedRose\Items\Sulfuras;
 
@@ -24,7 +24,7 @@ final class ItemFactory
             case 'Sulfuras, Hand of Ragnaros':
                 return new Sulfuras($legacyItem);
             default:
-                return new LegacyItem($legacyItem);
+                return new PerishableItem($legacyItem);
         }
     }
 }
