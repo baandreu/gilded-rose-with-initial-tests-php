@@ -17,7 +17,7 @@ final class BackstagePass extends MutableItem
             }
         }
 
-        $this->legacyItem->sell_in = $this->legacyItem->sell_in - 1;
+        $this->tickDay();
 
         if ($this->hasExpired()) {
             $this->legacyItem->quality = $this->legacyItem->quality - $this->legacyItem->quality;

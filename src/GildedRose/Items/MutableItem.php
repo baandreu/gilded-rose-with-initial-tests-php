@@ -41,4 +41,9 @@ abstract class MutableItem implements NewItem
     {
         return $this->legacyItem->sell_in < 0;
     }
+
+    protected function tickDay()
+    {
+        $this->legacyItem->sell_in = $this->legacyItem->sell_in - 1;
+    }
 }

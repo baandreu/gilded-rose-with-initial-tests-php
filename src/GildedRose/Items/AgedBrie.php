@@ -8,7 +8,7 @@ final class AgedBrie extends MutableItem
     {
         $this->increaseQuality();
 
-        $this->legacyItem->sell_in = $this->legacyItem->sell_in - 1;
+        $this->tickDay();
 
         if ($this->hasExpired()) {
             $this->increaseQuality();

@@ -8,7 +8,7 @@ final class PerishableItem extends MutableItem
     {
         $this->decreaseQuality();
 
-        $this->legacyItem->sell_in = $this->legacyItem->sell_in - 1;
+        $this->tickDay();
 
         if ($this->legacyItem->sell_in < 0) {
             $this->decreaseQuality();
