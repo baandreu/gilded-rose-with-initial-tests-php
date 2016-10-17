@@ -6,6 +6,7 @@ use GildedRose\Item;
 
 abstract class MutableItem implements NewItem
 {
+    const MIN_QUALITY = 0;
     const MAX_QUALITY = 50;
 
     /** @var Item */
@@ -23,6 +24,13 @@ abstract class MutableItem implements NewItem
     {
         if ($this->legacyItem->quality < self::MAX_QUALITY) {
             $this->legacyItem->quality = $this->legacyItem->quality + 1;
+        }
+    }
+
+    protected function decreaseQuality()
+    {
+        if ($this->legacyItem->quality > self::MIN_QUALITY) {
+            $this->legacyItem->quality = $this->legacyItem->quality - 1;
         }
     }
 }

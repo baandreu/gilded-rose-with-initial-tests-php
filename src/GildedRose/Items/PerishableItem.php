@@ -14,11 +14,4 @@ final class PerishableItem extends MutableItem
             $this->decreaseQuality();
         }
     }
-
-    private function decreaseQuality()
-    {
-        if ($this->legacyItem->quality > 0) {
-            $this->legacyItem->quality = $this->legacyItem->quality - 1;
-        }
-    }
 }
