@@ -33,4 +33,12 @@ abstract class MutableItem implements NewItem
             $this->legacyItem->quality = $this->legacyItem->quality - 1;
         }
     }
+
+    /**
+     * @return bool
+     */
+    protected function hasExpired()
+    {
+        return $this->legacyItem->sell_in < 0;
+    }
 }

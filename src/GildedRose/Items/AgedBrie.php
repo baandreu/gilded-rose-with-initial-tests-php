@@ -14,12 +14,4 @@ final class AgedBrie extends MutableItem
             $this->increaseQuality();
         }
     }
-
-    /**
-     * @return bool
-     */
-    private function hasExpired()
-    {
-        return $this->legacyItem->sell_in < 0;
-    }
 }
