@@ -2,21 +2,8 @@
 
 namespace GildedRose\Items;
 
-use GildedRose\Item;
-
-final class PerishableItem implements NewItem
+final class PerishableItem extends MutableItem
 {
-    /** @var Item */
-    private $legacyItem;
-
-    /**
-     * @param Item $legacyItem
-     */
-    public function __construct(Item $legacyItem)
-    {
-        $this->legacyItem = $legacyItem;
-    }
-
     public function updateQuantity()
     {
         $this->decreaseQuality();
