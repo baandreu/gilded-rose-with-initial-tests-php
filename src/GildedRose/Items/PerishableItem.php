@@ -19,13 +19,18 @@ final class PerishableItem implements NewItem
 
     public function updateQuantity()
     {
-        if ($this->legacyItem->quality > 0) {
-            $this->legacyItem->quality = $this->legacyItem->quality - 1;
-        }
+        $this->decreaseQuality();
 
         $this->legacyItem->sell_in = $this->legacyItem->sell_in - 1;
 
-        if ($this->legacyItem->sell_in < 0 && $this->legacyItem->quality > 0) {
+        if ($this->legacyItem->sell_in < 0) {
+            $this->decreaseQuality();
+        }
+    }
+
+    private function decreaseQuality()
+    {
+        if ($this->legacyItem->quality > 0) {
             $this->legacyItem->quality = $this->legacyItem->quality - 1;
         }
     }
