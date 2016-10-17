@@ -3,7 +3,6 @@
 namespace GildedRose;
 
 use GildedRose\Items\NewItem;
-use GildedRose\Items\LegacyItem;
 
 class GildedRose {
 
@@ -24,8 +23,6 @@ class GildedRose {
      */
     private function newItems()
     {
-        return array_map(function (Item $legacyItem) {
-            return new LegacyItem($legacyItem);
-        }, $this->items);
+        return array_map(function (Item $legacyItem) { return ItemFactory::create($legacyItem); }, $this->items);
     }
 }
