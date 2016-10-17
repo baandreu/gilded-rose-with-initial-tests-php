@@ -8,13 +8,15 @@ final class BackstagePass extends MutableItem
     {
         $this->increaseQuality();
 
-        if ($this->legacyItem->name == 'Backstage passes to a TAFKAL80ETC concert') {
-            if ($this->legacyItem->sell_in < 11) {
-                $this->increaseQuality();
-            }
-            if ($this->legacyItem->sell_in < 6) {
-                $this->increaseQuality();
-            }
+        $isWithin10days = $this->legacyItem->sell_in < 11;
+        $isWithin5days = $this->legacyItem->sell_in < 6;
+
+        if ($isWithin10days) {
+            $this->increaseQuality();
+        }
+
+        if ($isWithin5days) {
+            $this->increaseQuality();
         }
 
         $this->tickDay();
