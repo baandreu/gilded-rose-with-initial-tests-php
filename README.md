@@ -1,0 +1,1 @@
+Initial code based on [https://github.com/emilybache/GildedRose-Refactoring-Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata) and [https://github.com/trikitrok/GildedRoseMarch2016Java](https://github.com/trikitrok/GildedRoseMarch2016Java).
