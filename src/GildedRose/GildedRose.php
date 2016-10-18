@@ -24,7 +24,7 @@ class GildedRose {
     private function mutableItems()
     {
         return array_filter(
-            array_map(function (Item $legacyItem) { return ItemFactory::create($legacyItem); }, $this->items)
+            array_map(function (Item $legacyItem) { return ItemFactory::createMutable($legacyItem); }, $this->items)
         );
     }
 }

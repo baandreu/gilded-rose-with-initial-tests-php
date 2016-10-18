@@ -13,7 +13,7 @@ final class ItemFactory
      * @param Item $legacyItem
      * @return MutableItem|null
      */
-    public static function create(Item $legacyItem)
+    public static function createMutable(Item $legacyItem)
     {
         switch ($legacyItem->name) {
             case self::isImmutable($legacyItem):
