@@ -15,9 +15,11 @@ final class ItemFactory
      */
     public static function createMutable(Item $legacyItem)
     {
+        if (self::isImmutable($legacyItem)) {
+            return null;
+        }
+
         switch ($legacyItem->name) {
-            case self::isImmutable($legacyItem):
-                return null;
             case 'Aged Brie':
                 return new AgedBrie($legacyItem);
             case 'Backstage passes to a TAFKAL80ETC concert':
