@@ -10,7 +10,7 @@ final class PerishableItem extends MutableItem
 
         $this->tickDay();
 
-        if ($this->legacyItem->sell_in < 0) {
+        if ($this->hasExpired()) {
             $this->decreaseQuality();
         }
     }
