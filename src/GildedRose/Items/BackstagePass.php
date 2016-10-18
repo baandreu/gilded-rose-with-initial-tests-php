@@ -6,17 +6,15 @@ final class BackstagePass extends MutableItem
 {
     public function updateQuantity()
     {
-        $this->increaseQuality();
+        $isCloseToDate = $this->legacyItem->sell_in < 11;
+        $isVeryCloseToDate = $this->legacyItem->sell_in < 6;
 
-        $isWithin10days = $this->legacyItem->sell_in < 11;
-        $isWithin5days = $this->legacyItem->sell_in < 6;
-
-        if ($isWithin10days) {
-            $this->increaseQuality();
-        }
-
-        if ($isWithin5days) {
-            $this->increaseQuality();
+        if ($isVeryCloseToDate) {
+            $this->increaseQualityBy(3);
+        } elseif ($isCloseToDate) {
+            $this->increaseQualityBy(2);
+        } else {
+            $this->increaseQualityBy(1);
         }
 
         $this->tickDay();

@@ -29,6 +29,16 @@ abstract class MutableItem
         }
     }
 
+    /**
+     * @param int $times
+     */
+    protected function increaseQualityBy($times)
+    {
+        while ($times-- > 0) {
+            $this->increaseQuality();
+        }
+    }
+
     protected function decreaseQuality()
     {
         if ($this->legacyItem->quality > self::MIN_QUALITY) {
