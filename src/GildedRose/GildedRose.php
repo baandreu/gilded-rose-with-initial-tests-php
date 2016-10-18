@@ -2,7 +2,7 @@
 
 namespace GildedRose;
 
-use GildedRose\Items\NewItem;
+use GildedRose\Items\MutableItem;
 
 class GildedRose {
 
@@ -13,16 +13,18 @@ class GildedRose {
     }
 
     function update_quality(){
-        foreach ($this->newItems() as $item) {
+        foreach ($this->mutableItems() as $item) {
             $item->updateQuantity();
         }
     }
 
     /**
-     * @return NewItem[]
+     * @return MutableItem[]
      */
-    private function newItems()
+    private function mutableItems()
     {
-        return array_map(function (Item $legacyItem) { return ItemFactory::create($legacyItem); }, $this->items);
+        return array_filter(
+            array_map(function (Item $legacyItem) { return ItemFactory::create($legacyItem); }, $this->items)
+        );
     }
 }

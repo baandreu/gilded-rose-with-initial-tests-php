@@ -4,7 +4,7 @@ namespace GildedRose\Items;
 
 use GildedRose\Item;
 
-abstract class MutableItem implements NewItem
+abstract class MutableItem
 {
     const MIN_QUALITY = 0;
     const MAX_QUALITY = 50;
@@ -19,6 +19,8 @@ abstract class MutableItem implements NewItem
     {
         $this->legacyItem = $legacyItem;
     }
+
+    public abstract function updateQuantity();
 
     protected function increaseQuality()
     {
